@@ -7,6 +7,8 @@ This is a solution to the [Stats preview card component challenge on Frontend Me
 - [Overview](#overview)
   - [The challenge](#the-challenge)
   - [Screenshot](#screenshot)
+    - [Desktop](#desktop)
+    - [Mobile](#mobile)
   - [Links](#links)
 - [My process](#my-process)
   - [Built with](#built-with)
@@ -28,20 +30,17 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.jpg)
+#### Desktop
+![](../images/screenshot_desktop.png)
 
-Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the page and select "Take a Screenshot". You can choose either a full-height screenshot or a cropped one based on how long the page is. If it's very long, it might be best to crop it.
+#### Mobile
+![](../images/screenshot_mobile.png)
 
-Alternatively, you can use a tool like [FireShot](https://getfireshot.com/) to take the screenshot. FireShot has a free option, so you don't need to purchase it. 
-
-Then crop/optimize/edit your image however you like, add it to your project, and update the file path in the image above.
-
-**Note: Delete this note and the paragraphs above when you add your screenshot. If you prefer not to add a screenshot, feel free to remove this entire section.**
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- [Solution URL](https://github.com/Risclover/stats-preview-card)
+- [Live Site URL](https://risclover.github.io/stats-preview-card/)
 
 ## My process
 
@@ -50,37 +49,84 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 - Semantic HTML5 markup
 - CSS custom properties
 - Flexbox
-- CSS Grid
-- Mobile-first workflow
-- [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
-
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
 
 ### What I learned
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
+#### Layout
+I started out by turning the HTML into a layout that I thought could work. Since I'm getting pretty used to CSS Flexbox now, I was able to think about it for a moment and then execute it, which I'm happy about! Flexbox used to confuse me, but I think I've conquered it.
 
-To see how you can add code snippets, see below:
+I looked at the challenge picture (of what the page should look like when finished) and decided to do the following within the body tags:
 
 ```html
-<h1>Some HTML code I'm proud of</h1>
+<main>
+<!-- Main container -->
+<div id="main"> 
+
+  <!-- Left side of main container -->
+  <div id="left"> 
+
+    <!-- Main text on upper left side -->
+    <div id="maintext">
+      <h1>
+        Get <span class="highlight">insights</span> that help your business grow.
+      </h1>
+
+      <p>
+        Discover the benefits of data analytics and make better decisions regarding revenue, customer 
+        experience, and overall efficiency.
+      </p>
+    </div>
+
+    <!-- Stats on lower left side -->
+    <div id="stats">
+      <div class="statsbox">
+        <h2>10k+</h2> <p class="stathead">companies</p>
+      </div>
+
+      <div class="statsbox">
+        <h2>314</h2> <p class="stathead">templates</p>
+      </div>
+
+      <div class="statsbox">
+        <h2>12M+</h2> <p class="stathead">queries</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Right side of main container -->
+  <div id="right">
+    <img src="images/image-header-desktop.jpg" alt="Business women">
+  </div>
+</div>
+<!-- Footer credits -->
+<div class="attribution">
+  Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+  Coded by <a href="#">Risclover</a>.
+</div>
+</main>
 ```
+
+#### Making My Page Responsive
+I am extremely excited because I was able to make this website pretty much totally responsive. It was my first time using two media queries to do so, after figuring out that ~710px was the spot where I needed to make that sort of switch from mobile to desktop (through manual testing).
+
 ```css
-.proud-of-this-css {
-  color: papayawhip;
-}
-```
-```js
-const proudOfThisFunc = () => {
-  console.log('🎉')
+@media screen and (min-width: 711px){
+
+...
+
 }
 ```
 
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
+```css
+@media screen and (max-width: 710px) {
 
-**Note: Delete this note and the content within this section and replace with your own learnings.**
+...
+
+}
+```
+
+The thing is, the Challenge gives you a few parameters to use - for example, 15px for the main font. But I wasn't able to make my page fully responsive until I got rid of all of the px and made pretty much most of my units vw instead. Go look at my CSS code for yourself to see what I mean.
 
 ### Continued development
 
